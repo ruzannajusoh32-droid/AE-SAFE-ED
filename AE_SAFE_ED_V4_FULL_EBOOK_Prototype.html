@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A&E SAFE-ED | Full E-Book V4</title>
+<style>
+:root {
+  --navy:#10375d; --blue:#1976d2; --ink:#17212b; --muted:#64748b;
+  --line:#dce4ec; --bg:#f4f7fa; --white:#fff; --red:#b42318; --green:#16734a;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.6 Arial,sans-serif; }
+header {
+  position:sticky; top:0; z-index:20; color:#fff;
+  background:linear-gradient(135deg,var(--navy),#1d6099);
+  padding:15px 20px; box-shadow:0 3px 12px #0002;
+}
+.bar { max-width:1100px; margin:auto; display:flex; justify-content:space-between; align-items:center; gap:15px; }
+.brand { font-weight:800; font-size:18px; }
+.sub { font-size:11px; opacity:.86; }
+.wrap { max-width:1100px; margin:auto; padding:25px 18px 60px; }
+.hero {
+  background:linear-gradient(135deg,#fff,#eaf4ff);
+  border:1px solid #d5e5f3; border-radius:24px; padding:30px; margin-bottom:18px;
+}
+h1 { margin:0 0 4px; color:var(--navy); font-size:34px; }
+h2,h3 { color:var(--navy); }
+.hero p { color:#526173; }
+.pills { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+.pill { background:#fff; border:1px solid #d5e5f3; border-radius:999px; padding:6px 10px; font-size:12px; }
+.nav { display:flex; gap:8px; overflow:auto; margin:15px 0; }
+.nav a {
+  background:#fff; border:1px solid var(--line); border-radius:999px;
+  padding:8px 13px; text-decoration:none; color:var(--navy); white-space:nowrap; font-size:13px;
+}
+.search {
+  width:100%; padding:14px; border:1px solid var(--line);
+  border-radius:13px; margin:5px 0 18px; font-size:15px;
+}
+.grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+.card {
+  background:#fff; border:1px solid var(--line); border-radius:18px;
+  padding:18px; position:relative; box-shadow:0 3px 12px #16324b0a;
+}
+.card .num { position:absolute; right:16px; top:13px; color:#9aa8b6; font-size:12px; font-weight:700; }
+.icon { font-size:27px; }
+.card a,.back { color:var(--blue); font-weight:700; text-decoration:none; }
+.section { margin-top:30px; }
+.features { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+.feature,.box { background:#fff; border:1px solid var(--line); border-radius:16px; padding:17px; }
+.feature b { display:block; color:var(--navy); margin-bottom:5px; }
+.chapter { margin-top:45px; padding-top:22px; border-top:2px solid var(--line); }
+.chapter-title { display:flex; align-items:center; gap:13px; }
+.chapter-title > span { font-size:35px; }
+.chapter-title small { color:var(--blue); font-size:11px; font-weight:800; letter-spacing:1.5px; }
+.chapter-title h2 { margin:3px 0 12px; }
+.chapter-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+.danger { border-left:6px solid var(--red); background:#fff6f5; }
+.teach { border-left:6px solid var(--green); background:#f3fbf7; }
+.muted { color:var(--muted); font-size:12px; }
+footer { margin-top:40px; padding:20px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
+@media(max-width:750px) {
+  .grid,.chapter-grid { grid-template-columns:1fr; }
+  .features { grid-template-columns:repeat(2,1fr); }
+  h1 { font-size:28px; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <div><div class="brand">A&E SAFE-ED</div>
+    <div class="sub">Standardised A&E Patient Health Education System • KPJ Pahang Specialist Hospital • A&E Services</div></div>
+    <div><a href="#home" style="color:white;text-decoration:none;font-size:12px">HOME</a></div>
+  </div>
+</header>
+
+<main class="wrap" id="home">
+<section class="hero">
+  <h1>A&E SAFE-ED</h1>
+  <p><b>Standardised A&E Patient Health Education System</b></p>
+  <p>A digital patient-education and safety-netting e-book designed to standardise discharge education across A&E Services.</p>
+  <div class="pills">
+    <span class="pill">🇬🇧 English</span><span class="pill">🇲🇾 Bahasa Melayu</span>
+    <span class="pill">🛡️ Patient Safety</span><span class="pill">🗣️ Teach-Back</span>
+    <span class="pill">🚨 Safety-Netting</span><span class="pill">🔎 Smart Search</span>
+  </div>
+</section>
+
+<div class="nav">
+  <a href="#topics">Digital Index</a><a href="#safety">Patient Safety Hub</a>
+  <a href="#governance">Governance</a><a href="#change">Change Log</a>
+</div>
+
+<section class="section" id="topics">
+  <h2>📚 Digital Index</h2>
+  <input class="search" id="search" placeholder="Search topic / Cari topik…" oninput="filterTopics()">
+  <div class="grid" id="topicgrid">
+    <article class="card topic" data-search="asthma / asma breathing symptoms, medicines, inhaler technique and urgent warning signs.">
+      <span class="num">01</span><div class="icon">🫁</div>
+      <h3>Asthma / Asma</h3><p>Breathing symptoms, medicines, inhaler technique and urgent warning signs.</p>
+      <a href="#chapter1">Open chapter →</a>
+    </article>
+    <article class="card topic" data-search="dengue / denggi hydration, monitoring, warning signs and when urgent reassessment is needed.">
+      <span class="num">02</span><div class="icon">🦟</div>
+      <h3>Dengue / Denggi</h3><p>Hydration, monitoring, warning signs and when urgent reassessment is needed.</p>
+      <a href="#chapter2">Open chapter →</a>
+    </article>
+    <article class="card topic" data-search="chest pain / sakit dada safety-netting for chest pain and urgent symptoms.">
+      <span class="num">03</span><div class="icon">❤️</div>
+      <h3>Chest Pain / Sakit Dada</h3><p>Safety-netting for chest pain and urgent symptoms.</p>
+      <a href="#chapter3">Open chapter →</a>
+    </article>
+    <article class="card topic" data-search="stroke / tia recognising stroke symptoms and the importance of urgent action.">
+      <span class="num">04</span><div class="icon">🧠</div>
+      <h3>Stroke / TIA</h3><p>Recognising stroke symptoms and the importance of urgent action.</p>
+      <a href="#chapter4">Open chapter →</a>
+    </article>
+    <article class="card topic" data-search="fever / demam home care, monitoring and warning signs.">
+      <span class="num">05</span><div class="icon">🌡️</div>
+      <h3>Fever / Demam</h3><p>Home care, monitoring and warning signs.</p>
+      <a href="#chapter5">Open chapter →</a>
+    </article>
+    <article class="card topic" data-search="vomiting & diarrhoea / muntah & cirit-birit hydration, food advice and dehydration warning signs.">
+      <span class="num">06</span><div class="icon">💧</div>
+      <h3>Vomiting & Diarrhoea / Muntah & Cirit-birit</h3><p>Hydration, food advice and dehydration warning signs.</p>
+      <a href="#chapter6">Open chapter →</a>
+    </article>
+    <article class="card topic" data-search="gi bleeding / pendarahan gastrointestinal warning signs, medication precautions and urgent reassessment.">
+      <span class="num">07</span><div class="icon">🩸</div>
+      <h3>GI Bleeding / Pendarahan Gastrointestinal</h3><p>Warning signs, medication precautions and urgent reassessment.</p>
+      <a href="#chapter7">Open chapter →</a>
+    </article>
+    <article class="card topic" data-search="diabetes / diabetes mellitus glucose monitoring, medicines and hypo/hyperglycaemia warning signs.">
+      <span class="num">08</span><div class="icon">🩺</div>
+      <h3>Diabetes / Diabetes Mellitus</h3><p>Glucose monitoring, medicines and hypo/hyperglycaemia warning signs.</p>
+      <a href="#chapter8">Open chapter →</a>
+    </article>
+    <article class="card topic" data-search="wound care / penjagaan luka wound care, infection warning signs and follow-up.">
+      <span class="num">09</span><div class="icon">🩹</div>
+      <h3>Wound Care / Penjagaan Luka</h3><p>Wound care, infection warning signs and follow-up.</p>
+      <a href="#chapter9">Open chapter →</a>
+    </article>
+    <article class="card topic" data-search="medication safety / keselamatan ubat safe medicine use, reconciliation, allergies and red flags.">
+      <span class="num">10</span><div class="icon">💊</div>
+      <h3>Medication Safety / Keselamatan Ubat</h3><p>Safe medicine use, reconciliation, allergies and red flags.</p>
+      <a href="#chapter10">Open chapter →</a>
+    </article></div>
+</section>
+
+<section class="section" id="safety">
+  <h2>🛡️ Patient Safety Hub</h2>
+  <div class="features">
+    <div class="feature"><b>🚨 Red Flags</b>Clear “When should I return to A&E Services?” safety-netting.</div>
+    <div class="feature"><b>🗣️ Teach-Back</b>Patient/caregiver explains key instructions before discharge.</div>
+    <div class="feature"><b>💊 Medication Safety</b>Purpose, safe use and reconciliation prompts.</div>
+    <div class="feature"><b>📅 Follow-up</b>Where, when and what to do if symptoms worsen.</div>
+  </div>
+</section>
+
+
+    <section class="chapter" id="chapter1">
+      <div class="chapter-title"><span>🫁</span>
+        <div><small>CHAPTER 01</small><h2>Asthma / Asma</h2></div>
+      </div>
+      <div class="chapter-grid">
+        <div class="box"><h4>Understanding / Memahami</h4>
+          <p>Breathing symptoms, medicines, inhaler technique and urgent warning signs.</p>
+          <p>Explain the condition using simple, patient-friendly language and confirm understanding.</p>
+        </div>
+        <div class="box"><h4>What should I do? / Apa perlu saya lakukan?</h4>
+          <ul><li>Follow the discharge instructions given by the healthcare team.</li>
+          <li>Take medicines exactly as prescribed.</li>
+          <li>Attend the advised follow-up.</li></ul>
+        </div>
+        <div class="box danger"><h4>🚨 Warning Signs / Tanda Bahaya</h4>
+          <p><b>Seek urgent medical attention if symptoms are severe, rapidly worsening, or if the specific red flags explained by the healthcare team occur.</b></p>
+          <p class="muted">Condition-specific red flags must be clinically validated before publication.</p>
+        </div>
+        <div class="box teach"><h4>🗣️ Teach-Back</h4>
+          <p>“Can you tell me what you will do at home and which warning signs mean you need urgent help?”</p>
+          <p>Patient/caregiver explains or demonstrates the key instructions.</p>
+        </div>
+        <div class="box"><h4>📅 Follow-up / Susulan</h4>
+          <p>Confirm where and when follow-up is required and what the patient should monitor or bring.</p>
+        </div>
+        <div class="box"><h4>📚 References</h4>
+          <p>Insert the latest approved MOH Malaysia CPG, hospital policy/work instruction and authorised references for this topic.</p>
+        </div>
+      </div>
+      <a class="back" href="#topics">← Back to Digital Index</a>
+    </section>
+    <section class="chapter" id="chapter2">
+      <div class="chapter-title"><span>🦟</span>
+        <div><small>CHAPTER 02</small><h2>Dengue / Denggi</h2></div>
+      </div>
+      <div class="chapter-grid">
+        <div class="box"><h4>Understanding / Memahami</h4>
+          <p>Hydration, monitoring, warning signs and when urgent reassessment is needed.</p>
+          <p>Explain the condition using simple, patient-friendly language and confirm understanding.</p>
+        </div>
+        <div class="box"><h4>What should I do? / Apa perlu saya lakukan?</h4>
+          <ul><li>Follow the discharge instructions given by the healthcare team.</li>
+          <li>Take medicines exactly as prescribed.</li>
+          <li>Attend the advised follow-up.</li></ul>
+        </div>
+        <div class="box danger"><h4>🚨 Warning Signs / Tanda Bahaya</h4>
+          <p><b>Seek urgent medical attention if symptoms are severe, rapidly worsening, or if the specific red flags explained by the healthcare team occur.</b></p>
+          <p class="muted">Condition-specific red flags must be clinically validated before publication.</p>
+        </div>
+        <div class="box teach"><h4>🗣️ Teach-Back</h4>
+          <p>“Can you tell me what you will do at home and which warning signs mean you need urgent help?”</p>
+          <p>Patient/caregiver explains or demonstrates the key instructions.</p>
+        </div>
+        <div class="box"><h4>📅 Follow-up / Susulan</h4>
+          <p>Confirm where and when follow-up is required and what the patient should monitor or bring.</p>
+        </div>
+        <div class="box"><h4>📚 References</h4>
+          <p>Insert the latest approved MOH Malaysia CPG, hospital policy/work instruction and authorised references for this topic.</p>
+        </div>
+      </div>
+      <a class="back" href="#topics">← Back to Digital Index</a>
+    </section>
+    <section class="chapter" id="chapter3">
+      <div class="chapter-title"><span>❤️</span>
+        <div><small>CHAPTER 03</small><h2>Chest Pain / Sakit Dada</h2></div>
+      </div>
+      <div class="chapter-grid">
+        <div class="box"><h4>Understanding / Memahami</h4>
+          <p>Safety-netting for chest pain and urgent symptoms.</p>
+          <p>Explain the condition using simple, patient-friendly language and confirm understanding.</p>
+        </div>
+        <div class="box"><h4>What should I do? / Apa perlu saya lakukan?</h4>
+          <ul><li>Follow the discharge instructions given by the healthcare team.</li>
+          <li>Take medicines exactly as prescribed.</li>
+          <li>Attend the advised follow-up.</li></ul>
+        </div>
+        <div class="box danger"><h4>🚨 Warning Signs / Tanda Bahaya</h4>
+          <p><b>Seek urgent medical attention if symptoms are severe, rapidly worsening, or if the specific red flags explained by the healthcare team occur.</b></p>
+          <p class="muted">Condition-specific red flags must be clinically validated before publication.</p>
+        </div>
+        <div class="box teach"><h4>🗣️ Teach-Back</h4>
+          <p>“Can you tell me what you will do at home and which warning signs mean you need urgent help?”</p>
+          <p>Patient/caregiver explains or demonstrates the key instructions.</p>
+        </div>
+        <div class="box"><h4>📅 Follow-up / Susulan</h4>
+          <p>Confirm where and when follow-up is required and what the patient should monitor or bring.</p>
+        </div>
+        <div class="box"><h4>📚 References</h4>
+          <p>Insert the latest approved MOH Malaysia CPG, hospital policy/work instruction and authorised references for this topic.</p>
+        </div>
+      </div>
+      <a class="back" href="#topics">← Back to Digital Index</a>
+    </section>
+    <section class="chapter" id="chapter4">
+      <div class="chapter-title"><span>🧠</span>
+        <div><small>CHAPTER 04</small><h2>Stroke / TIA</h2></div>
+      </div>
+      <div class="chapter-grid">
+        <div class="box"><h4>Understanding / Memahami</h4>
+          <p>Recognising stroke symptoms and the importance of urgent action.</p>
+          <p>Explain the condition using simple, patient-friendly language and confirm understanding.</p>
+        </div>
+        <div class="box"><h4>What should I do? / Apa perlu saya lakukan?</h4>
+          <ul><li>Follow the discharge instructions given by the healthcare team.</li>
+          <li>Take medicines exactly as prescribed.</li>
+          <li>Attend the advised follow-up.</li></ul>
+        </div>
+        <div class="box danger"><h4>🚨 Warning Signs / Tanda Bahaya</h4>
+          <p><b>Seek urgent medical attention if symptoms are severe, rapidly worsening, or if the specific red flags explained by the healthcare team occur.</b></p>
+          <p class="muted">Condition-specific red flags must be clinically validated before publication.</p>
+        </div>
+        <div class="box teach"><h4>🗣️ Teach-Back</h4>
+          <p>“Can you tell me what you will do at home and which warning signs mean you need urgent help?”</p>
+          <p>Patient/caregiver explains or demonstrates the key instructions.</p>
+        </div>
+        <div class="box"><h4>📅 Follow-up / Susulan</h4>
+          <p>Confirm where and when follow-up is required and what the patient should monitor or bring.</p>
+        </div>
+        <div class="box"><h4>📚 References</h4>
+          <p>Insert the latest approved MOH Malaysia CPG, hospital policy/work instruction and authorised references for this topic.</p>
+        </div>
+      </div>
+      <a class="back" href="#topics">← Back to Digital Index</a>
+    </section>
+    <section class="chapter" id="chapter5">
+      <div class="chapter-title"><span>🌡️</span>
+        <div><small>CHAPTER 05</small><h2>Fever / Demam</h2></div>
+      </div>
+      <div class="chapter-grid">
+        <div class="box"><h4>Understanding / Memahami</h4>
+          <p>Home care, monitoring and warning signs.</p>
+          <p>Explain the condition using simple, patient-friendly language and confirm understanding.</p>
+        </div>
+        <div class="box"><h4>What should I do? / Apa perlu saya lakukan?</h4>
+          <ul><li>Follow the discharge instructions given by the healthcare team.</li>
+          <li>Take medicines exactly as prescribed.</li>
+          <li>Attend the advised follow-up.</li></ul>
+        </div>
+        <div class="box danger"><h4>🚨 Warning Signs / Tanda Bahaya</h4>
+          <p><b>Seek urgent medical attention if symptoms are severe, rapidly worsening, or if the specific red flags explained by the healthcare team occur.</b></p>
+          <p class="muted">Condition-specific red flags must be clinically validated before publication.</p>
+        </div>
+        <div class="box teach"><h4>🗣️ Teach-Back</h4>
+          <p>“Can you tell me what you will do at home and which warning signs mean you need urgent help?”</p>
+          <p>Patient/caregiver explains or demonstrates the key instructions.</p>
+        </div>
+        <div class="box"><h4>📅 Follow-up / Susulan</h4>
+          <p>Confirm where and when follow-up is required and what the patient should monitor or bring.</p>
+        </div>
+        <div class="box"><h4>📚 References</h4>
+          <p>Insert the latest approved MOH Malaysia CPG, hospital policy/work instruction and authorised references for this topic.</p>
+        </div>
+      </div>
+      <a class="back" href="#topics">← Back to Digital Index</a>
+    </section>
+    <section class="chapter" id="chapter6">
+      <div class="chapter-title"><span>💧</span>
+        <div><small>CHAPTER 06</small><h2>Vomiting & Diarrhoea / Muntah & Cirit-birit</h2></div>
+      </div>
+      <div class="chapter-grid">
+        <div class="box"><h4>Understanding / Memahami</h4>
+          <p>Hydration, food advice and dehydration warning signs.</p>
+          <p>Explain the condition using simple, patient-friendly language and confirm understanding.</p>
+        </div>
+        <div class="box"><h4>What should I do? / Apa perlu saya lakukan?</h4>
+          <ul><li>Follow the discharge instructions given by the healthcare team.</li>
+          <li>Take medicines exactly as prescribed.</li>
+          <li>Attend the advised follow-up.</li></ul>
+        </div>
+        <div class="box danger"><h4>🚨 Warning Signs / Tanda Bahaya</h4>
+          <p><b>Seek urgent medical attention if symptoms are severe, rapidly worsening, or if the specific red flags explained by the healthcare team occur.</b></p>
+          <p class="muted">Condition-specific red flags must be clinically validated before publication.</p>
+        </div>
+        <div class="box teach"><h4>🗣️ Teach-Back</h4>
+          <p>“Can you tell me what you will do at home and which warning signs mean you need urgent help?”</p>
+          <p>Patient/caregiver explains or demonstrates the key instructions.</p>
+        </div>
+        <div class="box"><h4>📅 Follow-up / Susulan</h4>
+          <p>Confirm where and when follow-up is required and what the patient should monitor or bring.</p>
+        </div>
+        <div class="box"><h4>📚 References</h4>
+          <p>Insert the latest approved MOH Malaysia CPG, hospital policy/work instruction and authorised references for this topic.</p>
+        </div>
+      </div>
+      <a class="back" href="#topics">← Back to Digital Index</a>
+    </section>
+    <section class="chapter" id="chapter7">
+      <div class="chapter-title"><span>🩸</span>
+        <div><small>CHAPTER 07</small><h2>GI Bleeding / Pendarahan Gastrointestinal</h2></div>
+      </div>
+      <div class="chapter-grid">
+        <div class="box"><h4>Understanding / Memahami</h4>
+          <p>Warning signs, medication precautions and urgent reassessment.</p>
+          <p>Explain the condition using simple, patient-friendly language and confirm understanding.</p>
+        </div>
+        <div class="box"><h4>What should I do? / Apa perlu saya lakukan?</h4>
+          <ul><li>Follow the discharge instructions given by the healthcare team.</li>
+          <li>Take medicines exactly as prescribed.</li>
+          <li>Attend the advised follow-up.</li></ul>
+        </div>
+        <div class="box danger"><h4>🚨 Warning Signs / Tanda Bahaya</h4>
+          <p><b>Seek urgent medical attention if symptoms are severe, rapidly worsening, or if the specific red flags explained by the healthcare team occur.</b></p>
+          <p class="muted">Condition-specific red flags must be clinically validated before publication.</p>
+        </div>
+        <div class="box teach"><h4>🗣️ Teach-Back</h4>
+          <p>“Can you tell me what you will do at home and which warning signs mean you need urgent help?”</p>
+          <p>Patient/caregiver explains or demonstrates the key instructions.</p>
+        </div>
+        <div class="box"><h4>📅 Follow-up / Susulan</h4>
+          <p>Confirm where and when follow-up is required and what the patient should monitor or bring.</p>
+        </div>
+        <div class="box"><h4>📚 References</h4>
+          <p>Insert the latest approved MOH Malaysia CPG, hospital policy/work instruction and authorised references for this topic.</p>
+        </div>
+      </div>
+      <a class="back" href="#topics">← Back to Digital Index</a>
+    </section>
+    <section class="chapter" id="chapter8">
+      <div class="chapter-title"><span>🩺</span>
+        <div><small>CHAPTER 08</small><h2>Diabetes / Diabetes Mellitus</h2></div>
+      </div>
+      <div class="chapter-grid">
+        <div class="box"><h4>Understanding / Memahami</h4>
+          <p>Glucose monitoring, medicines and hypo/hyperglycaemia warning signs.</p>
+          <p>Explain the condition using simple, patient-friendly language and confirm understanding.</p>
+        </div>
+        <div class="box"><h4>What should I do? / Apa perlu saya lakukan?</h4>
+          <ul><li>Follow the discharge instructions given by the healthcare team.</li>
+          <li>Take medicines exactly as prescribed.</li>
+          <li>Attend the advised follow-up.</li></ul>
+        </div>
+        <div class="box danger"><h4>🚨 Warning Signs / Tanda Bahaya</h4>
+          <p><b>Seek urgent medical attention if symptoms are severe, rapidly worsening, or if the specific red flags explained by the healthcare team occur.</b></p>
+          <p class="muted">Condition-specific red flags must be clinically validated before publication.</p>
+        </div>
+        <div class="box teach"><h4>🗣️ Teach-Back</h4>
+          <p>“Can you tell me what you will do at home and which warning signs mean you need urgent help?”</p>
+          <p>Patient/caregiver explains or demonstrates the key instructions.</p>
+        </div>
+        <div class="box"><h4>📅 Follow-up / Susulan</h4>
+          <p>Confirm where and when follow-up is required and what the patient should monitor or bring.</p>
+        </div>
+        <div class="box"><h4>📚 References</h4>
+          <p>Insert the latest approved MOH Malaysia CPG, hospital policy/work instruction and authorised references for this topic.</p>
+        </div>
+      </div>
+      <a class="back" href="#topics">← Back to Digital Index</a>
+    </section>
+    <section class="chapter" id="chapter9">
+      <div class="chapter-title"><span>🩹</span>
+        <div><small>CHAPTER 09</small><h2>Wound Care / Penjagaan Luka</h2></div>
+      </div>
+      <div class="chapter-grid">
+        <div class="box"><h4>Understanding / Memahami</h4>
+          <p>Wound care, infection warning signs and follow-up.</p>
+          <p>Explain the condition using simple, patient-friendly language and confirm understanding.</p>
+        </div>
+        <div class="box"><h4>What should I do? / Apa perlu saya lakukan?</h4>
+          <ul><li>Follow the discharge instructions given by the healthcare team.</li>
+          <li>Take medicines exactly as prescribed.</li>
+          <li>Attend the advised follow-up.</li></ul>
+        </div>
+        <div class="box danger"><h4>🚨 Warning Signs / Tanda Bahaya</h4>
+          <p><b>Seek urgent medical attention if symptoms are severe, rapidly worsening, or if the specific red flags explained by the healthcare team occur.</b></p>
+          <p class="muted">Condition-specific red flags must be clinically validated before publication.</p>
+        </div>
+        <div class="box teach"><h4>🗣️ Teach-Back</h4>
+          <p>“Can you tell me what you will do at home and which warning signs mean you need urgent help?”</p>
+          <p>Patient/caregiver explains or demonstrates the key instructions.</p>
+        </div>
+        <div class="box"><h4>📅 Follow-up / Susulan</h4>
+          <p>Confirm where and when follow-up is required and what the patient should monitor or bring.</p>
+        </div>
+        <div class="box"><h4>📚 References</h4>
+          <p>Insert the latest approved MOH Malaysia CPG, hospital policy/work instruction and authorised references for this topic.</p>
+        </div>
+      </div>
+      <a class="back" href="#topics">← Back to Digital Index</a>
+    </section>
+    <section class="chapter" id="chapter10">
+      <div class="chapter-title"><span>💊</span>
+        <div><small>CHAPTER 10</small><h2>Medication Safety / Keselamatan Ubat</h2></div>
+      </div>
+      <div class="chapter-grid">
+        <div class="box"><h4>Understanding / Memahami</h4>
+          <p>Safe medicine use, reconciliation, allergies and red flags.</p>
+          <p>Explain the condition using simple, patient-friendly language and confirm understanding.</p>
+        </div>
+        <div class="box"><h4>What should I do? / Apa perlu saya lakukan?</h4>
+          <ul><li>Follow the discharge instructions given by the healthcare team.</li>
+          <li>Take medicines exactly as prescribed.</li>
+          <li>Attend the advised follow-up.</li></ul>
+        </div>
+        <div class="box danger"><h4>🚨 Warning Signs / Tanda Bahaya</h4>
+          <p><b>Seek urgent medical attention if symptoms are severe, rapidly worsening, or if the specific red flags explained by the healthcare team occur.</b></p>
+          <p class="muted">Condition-specific red flags must be clinically validated before publication.</p>
+        </div>
+        <div class="box teach"><h4>🗣️ Teach-Back</h4>
+          <p>“Can you tell me what you will do at home and which warning signs mean you need urgent help?”</p>
+          <p>Patient/caregiver explains or demonstrates the key instructions.</p>
+        </div>
+        <div class="box"><h4>📅 Follow-up / Susulan</h4>
+          <p>Confirm where and when follow-up is required and what the patient should monitor or bring.</p>
+        </div>
+        <div class="box"><h4>📚 References</h4>
+          <p>Insert the latest approved MOH Malaysia CPG, hospital policy/work instruction and authorised references for this topic.</p>
+        </div>
+      </div>
+      <a class="back" href="#topics">← Back to Digital Index</a>
+    </section>
+
+<section class="section" id="governance">
+  <h2>📋 Clinical Document & Governance</h2>
+  <div class="box">
+    <b>Status:</b> Prototype / For clinical review<br><br>
+    <b>Required before live implementation:</b> clinical validation, approval by relevant hospital governance, version control and documented review cycle.<br><br>
+    <b>Reference framework:</b> latest approved MOH Malaysia CPGs, KPJ policies/work instructions and authorised clinical references.
+  </div>
+</section>
+
+<section class="section" id="change">
+  <h2>🔄 Change Log</h2>
+  <div class="box"><b>V4.0</b> — Full SAFE-ED architecture established using Asthma as the master chapter template; ten clinical topics indexed; safety-netting and teach-back integrated.</div>
+</section>
+
+<footer>
+  Prototype only. Patient-facing clinical content must be reviewed, clinically validated and approved before publication or use with patients.
+</footer>
+</main>
+
+<script>
+function filterTopics() {
+  const q = document.getElementById('search').value.toLowerCase();
+  document.querySelectorAll('.topic').forEach(x => {
+    x.style.display = x.dataset.search.includes(q) ? 'block' : 'none';
+  });
+}
+</script>
+</body>
+</html>
